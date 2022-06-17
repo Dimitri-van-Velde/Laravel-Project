@@ -8,6 +8,16 @@
         </div>
         <!-- End header -->
 
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                @foreach ($errors->all() as $error)
+                    <div class="card-body">
+                        <div class="bg-red-400 text-red-800 rounded-lg shadow-md p-6 pr-10 mb-8" style="...">{{$error}}</div>
+                    </div>
+                @endforeach
+            </div>
+        @endif
+
         <!-- Status -->
         @if(session('message'))
             <div class="card-body">

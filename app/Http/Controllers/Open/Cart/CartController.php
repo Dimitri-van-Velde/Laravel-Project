@@ -70,6 +70,10 @@ class CartController extends Controller
      */
     public function update(Request $request) : RedirectResponse
     {
+        $validated = $request->validate([
+            'newQty' => 'required|integer|between:1,9',
+        ]);
+
         $rowId = $request->input('rowId');
         $newQty = $request->input('newQty');
 
